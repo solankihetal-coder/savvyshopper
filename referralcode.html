@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="logo-icon" href="herbal/logo1.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SavvyShopper/Home</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <style>
+    #result { margin-top: 20px; }
+    
+    .referral-card {
+    width: 500px; /* Adjust width as needed */
+    height: 500px;
+    padding: 30px;
+    border-radius: 5px;
+    text-align: center; /* Center text within the card */
+    margin: 50px auto; /* Center the card horizontally and add some vertical margin */
+    box-shadow: 0 4px 8px 0 rgba(8, 8, 8, 1);
+    background-color: rgb(92, 114, 99);
+
+}
+
+.referral-card input {
+    margin-bottom: 20px; /* Add spacing between elements */
+    width: 90%; /*Make elements take up most of the card width*/
+    padding: 10px;
+    font-size: 18px;
+    background-color: #9ab194;
+}
+
+.referral-card button{
+    margin-bottom: 20px;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: rgb(255, 255, 255);
+    background-color: #1d3b20;
+    text-align: center;
+    cursor: pointer;
+    width: 90%;
+    font-size: 18px;
+}
+
+.referral-card button:hover {
+    background-color: #0e0f0e;
+}
+    /* .referral-card{
+    width: 220px;
+    box-shadow: 0 4px 8px 0 rgba(8, 8, 8, 0.2);
+    transition: 2s;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #9ab194;
+    position: relative;
+
+} */
+</style>
+</head>
+<body>
+<!-- navbar -->
+  <nav class="navbar">
+    <div class="logo"><img src="herbal/logo.png" alt="logo" width="190px"></div>
+    <ul class="menu">
+      <li><a href="homepage.html">Home</a></li>
+      <div class="dropdown">
+        <button class="dropbtn">Shop</button>
+        <div class="dropdown-content">
+          <a href="homecare.php">Home Care</a>
+          <a href="babycare.php">Baby Care</a>
+          <a href="health.php">Health & Nutrition</a>
+          <a href="agriculture.php">Agriculture & Veterinary</a>
+          <a href="skincare.php">Skin Care</a>
+          <a href="personal.php">Personal Care</a>
+          <a href="books.php">Books & Literature</a>
+          <a href="food.php">Food Care</a>
+
+        </div>
+      </div>
+      <li><a href="#about">About</a></li>
+      <li><a href="register.html">Join Membership</a></li> <!-- yaha pe dekhte h kya rkhna h -->
+      <li><a href="logout.php" class="button1">Logout</a></li>
+      <li><a href="#search"><img src="herbal/search.png" alt="" width="20px"></a></li>
+      <li><a href="#cart"><img src="herbal/cart.png" alt="" width="25px"></a></li>
+    </ul>
+  </nav>
+<body>
+
+    <div class="referral-card">
+        <h2>Generate Referral Code</h2>
+    <input type="number" id="userId" placeholder="User ID"><br>
+    <button id="generateBtn">Generate Code</button><br>
+    <button id="getBtn">Get Code</button><br>
+    <div id="result"></div>
+  </div>
+
+    <footer>
+        <div class="footerContainer">
+        <div class="row">
+          <div class="columnfo1">
+        <div class="logo">
+          <img src="herbal/logo.png" alt="logo" style="width: 210px;">
+          <h5>SavvyShopper is a community of herbal enthusiasts, wellness advocates, and nature lovers. 
+            Follow us on social media for tips, recipes, and stories that inspire.
+          </h5>
+        </div>
+      </div>
+      <div class="columnfo1">
+            <ul>
+              <li><h4>Get in touch</h4></li>
+              <li><img src="herbal/email.jpg" alt="" style="width: 15px;">&nbsp;SavvyShopper11@gmail.com</li>
+              <li><img src="herbal/call-removebg-preview.png" alt="" style="width: 15px;">&nbsp;0123456789</li>
+              <li><img src="herbal/instagram-removebg-preview.png" alt="" style="width: 20px;">SavvyShopper_11</li>
+            </ul>
+        </div>
+        <div class="columnfo1">
+          <h4><a href="feedback.html" style="color:black;text-decoration: none;">Click here to send a feedback</a></h4>
+        </div>
+      </div>
+    </div>
+      </div>
+        <div class="footerBottom">
+        <p>Copyright &copy 2022; designed by SavvyShopper </p>
+        </div>
+    <script>
+        const generateBtn = document.getElementById("generateBtn");
+        const getBtn = document.getElementById("getBtn");
+        const resultDiv = document.getElementById("result");
+        const userIdInput = document.getElementById("userId");
+
+        generateBtn.addEventListener("click", () => {
+             const userId = userIdInput.value;
+
+            fetch("generate_referral.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: `action=generate&userId=${userId}`,
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.referralCode) {
+                    resultDiv.textContent = `Referral Code: ${data.referralCode}`;
+                } else {
+                    resultDiv.textContent = `Error: ${data.error}`;
+                }
+            })
+            .catch((error) => {
+                resultDiv.textContent = `Error: ${error}`;
+            });
+        });
+
+        getBtn.addEventListener("click", () => {
+            const userId = userIdInput.value;
+
+            fetch("generate_referral.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: `action=get&userId=${userId}`,
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.referralCode) {
+                    resultDiv.textContent = `Referral Code: ${data.referralCode}`;
+                } else {
+                    resultDiv.textContent = `User has no referral code.`;
+                }
+            })
+            .catch((error) => {
+                resultDiv.textContent = `Error: ${error}`;
+            });
+        });
+
+    </script>
+</body>
+</html>

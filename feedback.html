@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="logo-icon" href="herbal/logo1.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SavvyShopper</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <style>
+
+.feedback-container {
+    background-color: rgb(92, 114, 99);
+    margin:50px auto;
+    width: 50%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow:0 20px 35px rgba(0,0,1,0.9);
+}
+
+.feedback-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.feedback-container .form-group {
+    margin-bottom: 15px;
+}
+
+.feedback-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+
+.feedback-container input,
+.feedback-container textarea,
+.feedback-container select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #9ab194;
+}
+
+.feedback-container select{
+    background-color: #9ab194;
+}
+.feedback-container button {
+    background-color: #234629;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: 2s;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+.feedback-container button:hover {
+    background-color: #0e0f0e;
+}
+
+#feedbackMessage{
+  text-align: center;
+  margin-top: 10px;
+}
+  </style>
+</head>
+<body>
+<!-- navbar -->
+  <nav class="navbar">
+    <div class="logo"><img src="herbal/logo.png" alt="logo" width="190px"></div>
+    <ul class="menu">
+      <li><a href="homepage.html">Home</a></li>
+      <div class="dropdown">
+        <button class="dropbtn">Shop</button>
+        <div class="dropdown-content">
+          <a href="homecare.php">Home Care</a>
+          <a href="babycare.html">Baby Care</a>
+          <a href="health.html">Health & Nutrition</a>
+          <a href="agriculture.html">Agriculture & Veterinary</a>
+          <a href="skincare.html">Skin Care</a>
+          <a href="personal.html">Personal Care</a>
+          <a href="books.html">Books & Literature</a>
+          <a href="food.html">Food Care</a>
+
+        </div>
+      </div>
+      <li><a href="#about">About</a></li>
+      <li><a href="register.html">Join Membership</a></li> <!-- yaha pe dekhte h kya rkhna h -->
+      <li><a href="logout.php" class="button1">Logout</a></li>
+      <li><a href="#search"><img src="herbal/search.png" alt="" width="20px"></a></li>
+      <li><a href="#cart"><img src="herbal/cart.png" alt="" width="25px"></a></li>
+    </ul>
+  </nav>
+
+    <div class="feedback-container">
+        <h2>Feedback Form</h2>
+        <form id="feedbackForm" action="submit_feedback.php" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating (1-5):</label>
+                <select id="rating" name="rating" required>
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Good</option>
+                    <option value="3">3 - Average</option>
+                    <option value="2">2 - Poor</option>
+                    <option value="1">1 - Very Poor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" rows="4" required></textarea>
+            </div>
+            <button type="submit">Submit Feedback</button>
+            <div id="feedbackMessage"></div>
+        </form>
+    </div>
+<!-- Footer of the website -->
+<footer>
+    <div class="footerContainer">
+    <div class="row">
+      <div class="columnfo1">
+    <div class="logo">
+      <img src="herbal/logo.png" alt="logo" style="width: 210px;">
+      <h5>SavvyShopper is a community of herbal enthusiasts, wellness advocates, and nature lovers. 
+        Follow us on social media for tips, recipes, and stories that inspire.
+      </h5>
+    </div>
+  </div>
+  <div class="columnfo1">
+        <ul>
+          <li><h4>Get in touch</h4></li>
+          <li><img src="herbal/email.jpg" alt="" style="width: 15px;">&nbsp;SavvyShopper11@gmail.com</li>
+          <li><img src="herbal/call-removebg-preview.png" alt="" style="width: 15px;">&nbsp;0123456789</li>
+          <li><img src="herbal/instagram-removebg-preview.png" alt="" style="width: 20px;">SavvyShopper_11</li>
+        </ul>
+    </div>
+    <div class="columnfo1">
+      <h4><a href="feedback.html" style="color:black;text-decoration: none;">Click here to send a feedback</a></h4>
+    </div>
+  </div>
+</div>
+  </div>
+    <div class="footerBottom">
+    <p>Copyright &copy 2022; designed by SavvyShopper </p>
+    </div>
+</footer>
+
+<script src="feedback.js"></script>
+
+</body>
+</html>

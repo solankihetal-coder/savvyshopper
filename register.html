@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="herbal/logo1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SavvyShopper</title>
+    <link rel="stylesheet" href="register.css">
+    <style>
+        .error-message {
+            color: rgb(128, 23, 23);
+            font-size: 0.8em;
+            display: block;
+            margin-top: 5px;
+        }
+        .row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo"><img src="herbal/logo.png" alt="logo" width="190px"></div>
+        <ul class="menu">
+            <li><a href="homepage.html">Home</a></li>
+            <div class="dropdown">
+                <button class="dropbtn">Shop</button>
+                <div class="dropdown-content">
+                    <a href="homecare.php">Home Care</a>
+                    <a href="babycare.php">Baby Care</a>
+                    <a href="health.php">Health & Nutrition</a>
+                    <a href="agriculture.php">Agriculture & Veterinary</a>
+                    <a href="skincare.php">Skin Care</a>
+                    <a href="personal.php">Personal Care</a>
+                    <a href="books.php">Books & Literature</a>
+                    <a href="food.php">Food Care</a>
+                </div>
+            </div>
+
+            </li>
+            <li><a href="#about">About</a></li>
+            <li><a href="register.html">Join Membership</a></li>
+            <li><a href="logout.php" class="button1">Logout</a></li>
+            <li><a href="#search"><img src="herbal/search.png" alt="" width="20px"></a></li>
+            <li><a href="#cart"><img src="herbal/cart.png" alt="" width="25px"></a></li>
+        </ul>
+    </nav>
+    <body>
+        <div class="reg-container">
+            <div class="reg-title">Registration</div>
+            <div class="reg-content">
+                <form action="register_user.php" method="post" id="registrationForm">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">First Name</span>
+                            <input type="text" name="first_name" placeholder="Enter your first name" required>
+                            <span class="error-message" id="first_name-error"></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Middle Name</span>
+                            <input type="text" name="middle_name" placeholder="Enter your middle name" required>
+                            <span class="error-message" id="middle_name-error"></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Last Name</span>
+                            <input type="text" name="last_name" placeholder="Enter your last name" required>
+                            <span class="error-message" id="last_name-error"></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Date of Birth</span>
+                            <input type="date" name="dob" id="dob" placeholder="Enter your DOB" required>
+                            <span class="error-message" id="dob-error"></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Username</span>
+                            <input type="text" name="username" placeholder="Enter your username" required>
+                            <span class="error-message" id="username-error"></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Email</span>
+                            <input type="text" name="email" id="email" placeholder="Enter your email" required>
+                            <span class="error-message" id="email-error"></span>
+
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Age</span>
+                            <input type="number" name="age" id="age" placeholder="Enter your age" required>
+                            <span class="error-message" id="age-error"></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Phone Number</span>
+                            <input type="number" name="phone_number" id="phone_number" placeholder="Enter your number"
+                                required>
+                            <span class="error-message" id="phone_number-error"></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Name of the Nominee</span>
+                            <input type="text" name="nominee_name" placeholder="Enter your nominee name" required>
+                            <span class="error-message" id="nominee_name-error"></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Relation with the Nominee</span>
+                            <input type="text" name="nominee_relation" placeholder="Enter your nominee name"
+                                required>
+                            <span class="error-message" id="nominee_relation-error"></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Pan Number</span>
+                            <input type="text" name="pan_number" id="pan_number" placeholder="Enter your pan number" required>
+                            <span class="error-message" id="pan_number-error"></span>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Address</span>
+                            <textarea name="address" placeholder="Enter your address" required></textarea>
+                            <span class="error-message" id="address-error"></span>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Password</span>
+                            <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                            <span class="error-message" id="password-error"></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Confirm Password</span>
+                            <input type="password" name="confirm_password" id="confirm_password"
+                                placeholder="Confirm your password" required>
+                            <span class="error-message" id="confirm_password-error"></span>
+                        </div>
+                    </div>
+                    <div class="gender-details">
+                        <input type="radio" name="gender" value="male" id="dot-1" required>
+                        <input type="radio" name="gender" value="female" id="dot-2" required>
+                        <input type="radio" name="gender" value="prefer_not_to_say" id="dot-3" required>
+                        <span class="gender-title">Gender</span>
+                        <div class="category">
+                            <label for="dot-1">
+                                <span class="dot one"></span>
+                                <span class="gender">Male</span>
+                            </label>
+                            <label for="dot-2">
+                                <span class="dot two"></span>
+                                <span class="gender">Female</span>
+                            </label>
+                            <label for="dot-3">
+                                <span class="dot three"></span>
+                                <span class="gender">Prefer not to say</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Register">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <footer>
+            <div class="footerContainer">
+                <div class="row">
+                    <div class="columnfo1">
+                        <div class="logo">
+                            <img src="herbal/logo.png" alt="logo" style="width: 210px;">
+                            <h5>SavvyShopper is a community of herbal enthusiasts, wellness advocates, and nature lovers.
+                                Follow us on social media for tips, recipes, and stories that inspire.
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="columnfo1">
+                        <ul>
+                            <li>
+                                <h4>Get in touch</h4>
+                            </li>
+                            <li><img src="herbal/email.jpg" alt="" style="width: 15px;">&nbsp;SavvyShopper11@gmail.com</li>
+                            <li><img src="herbal/call-removebg-preview.png" alt="" style="width: 15px;">&nbsp;0123456789</li>
+                            <li><img src="herbal/instagram-removebg-preview.png" alt="" style="width: 20px;">SavvyShopper_11</li>
+                        </ul>
+                    </div>
+                    <div class="columnfo1">
+                        <h4><a href="feedback.html" style="color:black;text-decoration: none;">Click here to send a feedback</a></h4>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="footerBottom">
+                <p>Copyright &copy 2022; designed by SavvyShopper </p>
+            </div>
+        </footer>
+        <script src="register_validation.js"></script>
+        </body>
+    </html>
